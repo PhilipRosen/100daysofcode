@@ -9,7 +9,12 @@ for (i=0; i<numberOfButtons; i++) {
        
         var buttonInnerHTML = this.innerHTML
 
-        switch (buttonInnerHTML) {
+        makeSound(buttonInnerHTML)
+       })
+    }
+    function makeSound (key){
+    
+        switch (key) {
             case "w":
                 var snare = new Audio("./sounds/snare.mp3");
                 snare.play();
@@ -39,12 +44,12 @@ for (i=0; i<numberOfButtons; i++) {
                 tom4.play();
             break;
             default: console.log(buttonInnerHTML)
-            
+    
         }
+    }
 
-    });
-}
-
-
+document.addEventListener("keydown", function (event) {
+    makeSound(event.key)
+});
 // var audio = new Audio("./sounds/crash.mp3");
 // audio.play();
